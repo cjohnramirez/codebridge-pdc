@@ -22,6 +22,11 @@ def game():
             if (choice == 1):
                 num1, num2 = get_number()
                 result = num1 + num2
-                print (f"The sum of {num1} and {num2} is {result}")
+                print (f"The sum of {num1} and {num2} is {result}")          
+                                        
+            elif (choice == 2):
+                num1, num2 = get_number()
+                result = num1 - num2    
+                print(f"The difference of {num1} and {num2} is {result}")
     
 game()
