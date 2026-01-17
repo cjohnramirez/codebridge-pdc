@@ -18,5 +18,10 @@ def game():
             choice = int(input("Enter your user input: "))
             if (choice in choice_array):
                 break
+            
+            if (choice == 1):
+                num1, num2 = get_number()
+                result = num1 + num2
+                print (f"The sum of {num1} and {num2} is {result}")
     
 game()
