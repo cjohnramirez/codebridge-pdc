@@ -33,5 +33,19 @@ def game():
                 num1, num2 = get_number()
                 result = num1 * num2
                 print(f"The product of {num1} and {num2} is {result}")
+                
+            elif (choice == 4):
+                num1, num2 = get_number()
+                if num2 == 0:
+                    print("Error: Invalid Operation, cannot divide by zero")
+                else:
+                    #Quotient
+                    print(f"Result: {num1} / {num2} = {num1 / num2}")
+                    #Remainder
+                    print(f"Remainder: {num1} % {num2} = {num1 % num2}")
+                    
+            elif (choice == 5):
+                print("You have exited the program!")
+                break
     
 game()
