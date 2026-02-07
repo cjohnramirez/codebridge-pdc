@@ -10,6 +10,10 @@
 
 5. Which method is better for CPU-bound tasks and which for I/O-bound
 tasks?
+    
+**Multiprocessing** is better for **CPU-bound tasks** because it can run multiple processes in parallel across different CPU cores, bypassing Python’s Global Interpreter Lock (GIL).
+
+**Multithreading** is better for **I/O-bound tasks** because threads can run concurrently while waiting for external operations (like file access, network requests, or database queries), and the GIL does not significantly affect performance.
 
 6. How did your group apply creative coding or algorithmic solutions in this
 lab?
