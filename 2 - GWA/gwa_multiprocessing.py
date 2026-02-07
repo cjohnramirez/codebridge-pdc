@@ -1,5 +1,6 @@
 from multiprocessing import Process
 import os
+import time
 
 def compute_gwa_mp(grades):
     gwa = sum(grades) / len(grades)
@@ -13,10 +14,12 @@ if __name__ == "__main__":
         grade = float(input(f"Enter grade for subject {i + 1}: "))
         grades.append(grade)
 
-    # Create multiple processes (each computes GWA independently)
     processes = []
 
-    for i in range(3):  # number of processes (can be changed)
+    # ⏱ Start timing
+    start_time = time.perf_counter()
+
+    for i in range(3):  # number of processes
         p = Process(target=compute_gwa_mp, args=(grades,))
         processes.append(p)
         p.start()
@@ -24,4 +27,10 @@ if __name__ == "__main__":
     for p in processes:
         p.join()
 
+    # ⏱ End timing
+    end_time = time.perf_counter()
+
+    execution_time_ms = (end_time - start_time) * 1000
+
     print("All processes completed.")
+    print(f"Total Execution Time: {execution_time_ms:.2f} ms")
