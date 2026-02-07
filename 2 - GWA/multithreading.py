@@ -53,5 +53,5 @@ end_printing_time = time.perf_counter()
 execution_time = end_execution_time - start_execution_time
 printing_time = end_printing_time - start_printing_time
 
-print("Execution Time: ", execution_time)
-print("Printing Time: ", printing_time)
+print("Execution Time: ", execution_time * 1000, " ms")
+print("Printing Time: ", printing_time * 1000, " ms")
