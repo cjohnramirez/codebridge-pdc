@@ -24,6 +24,6 @@
 
 | Method           | No. of Grades Input | Execution Order | GWA Output | Execution Time (ms) |
 |------------------|---------------------|----------------|------------|--------------------|
-| Multithreading   |                     |                |            |                    |
-| Multiprocessing  |                     |                |            |                    |
+| Multithreading   |         100         |                |            |                    |
+| Multiprocessing  |         100         |                |            |                    |
 
