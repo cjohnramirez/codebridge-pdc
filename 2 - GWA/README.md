@@ -13,8 +13,14 @@
 
 2. Compare execution times between multithreading and multiprocessing.
 
+   **In our execution, the multithreading approach was significantly faster, completing in 1.97 ms, while the multiprocessing approach took 209.92 ms. This result happens because creating a new process is a "heavy" operation for the operating system. When we ran the multiprocessing script, the computer had to allocate separate memory and start a new instance of Python for each of the three processes. For a small task like calculating the average of just 5 grades, the time spent setting up these processes took much longer than the actual math. In contrast, threads are lightweight and share the same memory, so they started almost instantly. However, if we were processing a large number of grades, the multiprocessing approach would eventually become faster because the three processes could run on different CPU cores at the same time.**
+
 3. Can Python handle true parallelism using threads? Why or why not?
 
+    Based on our findings, **no**, Python cannot handle true parallelism using threads. The reason is the **Global Interpreter Lock (GIL)**. The GIL is a rule within Python that forces the interpreter to execute only **one thread** at a time, even if our computer has multiple CPU cores available.
+    
+    In our `multithreading.py` code, even though we created three threads to process the grades, they were not running at the exact same instant. Instead, they were **concurrent**, meaning the CPU was just switching between them incredibly fast. It gives the illusion of parallelism, but in reality, they are just taking turns using a single core. To achieve **true parallelism** where tasks run simultaneously on different cores, we had to use the **multiprocessing** approach instead.
+    
 4. What happens if you input a large number of grades (e.g., 1000)? Which method is faster and why?
 
     **When the number of grades exceeds 1000, multiprocessing becomes the fastest method since it allows real parallel execution across many CPU cores while avoiding the Global Interpreter Lock. Multithreading, on the other hand, has no substantial improvement in speed for this CPU-bound activity and may even increase overhead.**
