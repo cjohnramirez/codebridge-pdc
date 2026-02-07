@@ -12,3 +12,10 @@ tasks?
 
 6. How did your group apply creative coding or algorithmic solutions in this
 lab?
+
+## Execution Comparison
+
+| Method           | Execution Order              | GWA Output                         | Execution Time                    |
+|------------------|------------------------------|------------------------------------|-----------------------------------|
+| Multithreading   | Non-sequential (concurrent)  | Same GWA, order may vary           | Faster for I/O, limited for CPU   |
+| Multiprocessing  | Non-sequential (parallel)    | Same GWA, order may vary           | Faster for CPU-bound tasks        |
