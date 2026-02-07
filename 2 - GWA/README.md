@@ -35,7 +35,7 @@
 
 6. How did your group apply creative coding or algorithmic solutions in this lab?
    
-    **To handle grade computations more effectively, our group used unique coding and algorithmic methods that included both multithreading and multiprocessing techniques. We investigated how each method performed with increasing input sizes and utilised timing measurements to compare the results. During this process, we discovered the limitations of multithreading owing to the Global Interpreter Lock (GIL) and how multiprocessing accomplishes real parallel execution across many CPU cores. We optimized the program's execution through experimentation, comparing performance findings, and understanding why multiprocessing is faster for CPU-bound tasks, demonstrating algorithmic thinking.**
+    To handle grade computations more effectively, our group used unique coding and algorithmic methods that included both multithreading and multiprocessing techniques. We investigated how each method performed with increasing input sizes and utilised timing measurements to compare the results. During this process, we discovered the limitations of multithreading owing to the Global Interpreter Lock (GIL) and how multiprocessing accomplishes real parallel execution across many CPU cores. We optimized the program's execution through experimentation, comparing performance findings, and understanding why multiprocessing is faster for CPU-bound tasks, demonstrating algorithmic thinking.
 
 ## Execution Comparison
 
