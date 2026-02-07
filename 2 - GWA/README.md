@@ -4,7 +4,7 @@
 
     In contrast, the **multithreading** approach only demonstrates **concurrency**. Even though I split the same 5 grades across multiple threads, the GIL ensures that only **one thread** can execute Python bytecode at any given moment. This means the threads are just switching back and forth on a single core rather than running simultaneously.
 
-    ## Observations from the execution:
+    ### Observations from the execution:
 
     * The multiprocessing output shows different **Process IDs** (PIDs like `18176` and `25860`), proving that the tasks handling the 5 grades are running as independent entities that do not share the GIL.
     * Only **multiprocessing** can utilize multiple CPU cores for CPU-bound tasks like calculating GWA. Multithreading is stuck using only **one core** regardless of the input size.
