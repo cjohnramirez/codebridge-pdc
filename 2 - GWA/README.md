@@ -35,6 +35,6 @@
 
 | Method           | No. of Grades Input | Execution Order                          | GWA Output | Execution Time (ms)|
 |------------------|---------------------|------------------------------------------|------------|--------------------|
-| Multithreading   |         1000        | Concurrent thread execution (interleaved)|            |                    |
-| Multiprocessing  |         1000        | Parallel process execution               |            |                    |
+| Multithreading   |         150         | Concurrent thread execution (interleaved)|            |                    |
+| Multiprocessing  |         150         | Parallel process execution               |            |                    |
 
