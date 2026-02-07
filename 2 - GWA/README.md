@@ -17,7 +17,7 @@
 
 4. What happens if you input a large number of grades (e.g., 1000)? Which method is faster and why?
 
-    **Note:** We only tested **150 grades** because VS Code crashed when attempting runs with larger, repeated inputs. Based on theory and typical Python behavior, if we scaled to **~1000 grades**, **multiprocessing** would generally be faster than multithreading for this CPU‑bound task, since it achieves true parallelism across multiple CPU cores, while multithreading is limited by the Global Interpreter Lock (GIL) and can add overhead as workload grows.
+    **Note:** We only tested **150 grades** for this test case scenario because VS Code crashed when attempting runs with larger, repeated inputs. Based on theory and typical Python behavior, if we scaled to **~1000 grades**, **multiprocessing** would generally be faster than multithreading for this CPU‑bound task, since it achieves true parallelism across multiple CPU cores, while multithreading is limited by the Global Interpreter Lock (GIL) and can add overhead as workload grows.
 
 5. Which method is better for CPU-bound tasks and which for I/O-bound tasks?
     
