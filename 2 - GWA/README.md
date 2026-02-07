@@ -15,7 +15,10 @@ lab?
 
 ## Execution Comparison
 
-| Method           | Execution Order              | GWA Output                         | Execution Time                    |
-|------------------|------------------------------|------------------------------------|-----------------------------------|
-| Multithreading   |                              |                                    |                                   |
-| Multiprocessing  |                              |                                    |                                   |
+## Execution Comparison (GWA Computation)
+
+| Method           | No. of Grades Input | Execution Order | GWA Output | Execution Time (ms) |
+|------------------|---------------------|----------------|------------|--------------------|
+| Multithreading   |                     |                |            |                    |
+| Multiprocessing  |                     |                |            |                    |
+
