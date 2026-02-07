@@ -23,7 +23,7 @@
     
 4. What happens if you input a large number of grades (e.g., 1000)? Which method is faster and why?
 
-    **When the number of grades exceeds 1000, multiprocessing becomes the fastest method since it allows real parallel execution across many CPU cores while avoiding the Global Interpreter Lock. Multithreading, on the other hand, has no substantial improvement in speed for this CPU-bound activity and may even increase overhead.**
+    **Note:** We only tested **150 grades** for this test case scenario because VS Code crashed when attempting runs with larger, repeated inputs. Based on theory and typical Python behavior, if we scaled to **~1000 grades**, **multiprocessing** would generally be faster than multithreading for this CPU‑bound task, since it achieves true parallelism across multiple CPU cores, while multithreading is limited by the Global Interpreter Lock (GIL) and can add overhead as workload grows.
 
 5. Which method is better for CPU-bound tasks and which for I/O-bound tasks?
     
@@ -41,6 +41,6 @@
 
 | Method           | No. of Grades Input | Execution Order                          | GWA Output | Execution Time (ms)|
 |------------------|---------------------|------------------------------------------|------------|--------------------|
-| Multithreading   |         1000        | Concurrent thread execution (interleaved)|            |                    |
-| Multiprocessing  |         1000        | Parallel process execution               |            |                    |
+| Multithreading   |         150         | Concurrent thread execution (interleaved)|            |                    |
+| Multiprocessing  |         150         | Parallel process execution               |            |                    |
 
