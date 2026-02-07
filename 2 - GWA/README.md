@@ -22,8 +22,8 @@
 
 ## Execution Comparison (GWA Computation)
 
-| Method           | No. of Grades Input | Execution Order | GWA Output | Execution Time (ms) |
-|------------------|---------------------|----------------|------------|--------------------|
-| Multithreading   |         1000        |                |            |                    |
-| Multiprocessing  |         1000        |                |            |                    |
+| Method           | No. of Grades Input | Execution Order                          | GWA Output | Execution Time (ms)|
+|------------------|---------------------|------------------------------------------|------------|--------------------|
+| Multithreading   |         1000        | Concurrent thread execution (interleaved)|            |                    |
+| Multiprocessing  |         1000        | Parallel process execution               |            |                    |
 
