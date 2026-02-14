@@ -1,7 +1,8 @@
 # codebridge-pdc
 A unified Codespace repository for the subject CS323 - Parallel and Distributed Computing
 
-**Computer Science - 3A** • **University of Science and Technology of Southern Philippines* • **Department of Computer Science**
+**Computer Science - 3A** • **University of Science and Technology of Southern Philippines** • **Department of Computer Science**
+
 **Campion, Gerlie** • **Esteban, Francis Adrian** • **Gulde, Jhey** • **Gultiano, Kathleen Grace** • **Ramirez, John Carl** 
 
 # Documentation
