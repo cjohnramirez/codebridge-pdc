@@ -15,6 +15,16 @@ Department of Computer Science
 
 ---
 
+## Repository Contents
+
+| Directory | Description |
+| :--- | :--- |
+| **[1 - Calculator](./1%20-%20Calculator)** | Basic arithmetic operations demonstrating Python fundamentals. |
+| **[2 - GWA](./2%20-%20GWA)** | Comparative analysis of **Multithreading** vs **Multiprocessing** for GWA calculation. |
+| **[3 - Concurrency](./3%20-%20Concurrency)** | Payroll system implementation utilizing **Task** and **Data Parallelism**. |
+
+---
+
 ## Documentation
 
 <div align="center">
