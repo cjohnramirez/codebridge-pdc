@@ -2,9 +2,6 @@
 
 > A unified Codespace repository for the subject **CS323 - Parallel and Distributed Computing**
 
----
-
-### Section
 **Computer Science - 3A**  
 University of Science and Technology of Southern Philippines  
 Department of Computer Science
@@ -17,16 +14,16 @@ Department of Computer Science
 - **Ramirez, John Carl**
 
 ---
-# Documentation
+
+## 📸 Documentation
 
 <div align="center">
 
-## 1st Meeting - 1/17/2026
-<img width="1828" height="1059" alt="616426358_745563544834763_4964683438496565196_n" src="lab1.png" />
+### 1st Meeting - 1/17/2026
+<img src="lab1.png" width="90%" alt="Lab 1 Documentation" />
 
-## 2nd Meeting - 2/07/2026
-<img width="1828" height="1059" alt="616426358_745563544834763_4964683438496565196_n" src="lab2.png" />
+### 2nd Meeting - 2/07/2026
+<img src="lab2.png" width="90%" alt="Lab 2 Documentation" />
 
-## 3rd Meeting - 2/14/2026
-<img width="1828" height="1059" alt="616426358_745563544834763_4964683438496565196_n" src="lab3.jpg" />
-
+### 3rd Meeting - 2/14/2026
+<img src="lab3.jpg" width="90%" alt="Lab 3 Documentation" />
