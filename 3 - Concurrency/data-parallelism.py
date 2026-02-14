@@ -47,3 +47,4 @@ print(f"PhilHealth: {philhealth:.2f}")
 print(f"Pag-IBIG: {pagibig:.2f}")
 print(f"Withholding Tax: {tax:.2f}")
 print(f"\nTotal Deduction: {total_deduction:.2f}")
+#new code and minor revisions for the functions
