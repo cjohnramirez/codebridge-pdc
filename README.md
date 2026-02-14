@@ -17,9 +17,10 @@ Department of Computer Science
 - **Ramirez, John Carl**
 
 ---
+# Documentation
+
 <div align="center">
 
-# Documentation
 ## 1st Meeting - 1/17/2026
 <img width="1828" height="1059" alt="616426358_745563544834763_4964683438496565196_n" src="lab1.png" />
 
