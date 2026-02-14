@@ -15,7 +15,7 @@ Department of Computer Science
 
 ---
 
-## 📸 Documentation
+## Documentation
 
 <div align="center">
 
