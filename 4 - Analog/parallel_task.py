@@ -29,3 +29,23 @@ def chunkify(n_rooms, p):
         chunks.append(rooms[start:end])
         start = end
     return chunks
+
+def run_parallel(n_rooms, n_threads):
+    sem = threading.Semaphore(TOOLS)
+    chunks = chunkify(n_rooms, n_threads)
+
+    def worker(rooms):
+        for _ in rooms:
+            with sem:
+                simulated_clean(CLEAN_MS)
+
+    t0 = time.perf_counter()
+    threads = [threading.Thread(target=worker, args=(chunk,)) for chunk in chunks]
+
+    for t in threads:
+        t.start()
+    for t in threads:
+        t.join()
+
+    t1 = time.perf_counter()
+    return (t1 - t0) * 1000.0
