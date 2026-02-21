@@ -39,4 +39,4 @@ Department of Computer Science
 <img src="lab3.jpg" width="90%" alt="Lab 3 Documentation" />
 
 ## 4th Meeting - 2/21/2026
-<img src="lab4.jpg>" width="90%" alt="Lab 4 Documentation" />
+<img src="lab4.jpg" width="90%" alt="Lab 4 Documentation" />
