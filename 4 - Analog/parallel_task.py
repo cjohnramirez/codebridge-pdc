@@ -49,3 +49,20 @@ def run_parallel(n_rooms, n_threads):
 
     t1 = time.perf_counter()
     return (t1 - t0) * 1000.0
+
+def main():
+    print("=== Parallel Benchmark ===")
+    print(f"Cleaning time per room: {CLEAN_MS} ms")
+    print(f"Tools: {TOOLS} (mutual exclusion)\n")
+
+    for rooms, threads in CASES:
+        print(f"Running parallel: {rooms} rooms, {threads} threads")
+
+        times = [run_parallel(rooms, threads) for _ in range(REPEATS)]
+        median_ms = statistics.median(times)
+
+        print(f"  Median Parallel Time: {median_ms:.2f} ms\n")
+
+
+if __name__ == "__main__":
+    main()
