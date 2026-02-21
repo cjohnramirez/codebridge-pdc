@@ -37,3 +37,6 @@ Department of Computer Science
 
 ### 3rd Meeting - 2/14/2026
 <img src="lab3.jpg" width="90%" alt="Lab 3 Documentation" />
+
+## 4th Meeting - 2/21/2026
+<img src="lab4.png>" width="90%" alt="Lab 3 Documentation" />
