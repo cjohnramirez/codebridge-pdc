@@ -23,6 +23,7 @@ Department of Computer Science
 | **[2 - GWA](./2%20-%20GWA)** | Comparative analysis of **Multithreading** vs **Multiprocessing** for GWA calculation. |
 | **[3 - Concurrency](./3%20-%20Concurrency)** | Payroll system implementation utilizing **Task** and **Data Parallelism**. |
 | **[4 - Analog](./4%20-%20Analog)** | Computational simulation of a real-world bottleneck utilizing **Data Parallelism**. |
+| **[5 - Distributed](./5%20-%20Distributed)** | MPI-based master-worker order processing with shared memory coordination. |
 ---
 
 ## Documentation
