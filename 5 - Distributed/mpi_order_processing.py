@@ -39,6 +39,17 @@ if rank == 0:
     for i in range(1, size):
         comm.send(None, dest=i, tag=0)
 
+  # Collect results from workers
+    completed = []
+
+    for _ in orders:
+        result = comm.recv(source=MPI.ANY_SOURCE, tag=1)
+        completed.append(result)
+
+    print("\n===== FINAL RESULTS =====")
+    for r in completed:
+        print(r)
+
 else:
     while True:
         order = comm.recv(source=0, tag=0)
