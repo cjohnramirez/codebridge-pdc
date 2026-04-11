@@ -38,3 +38,25 @@ if rank == 0:
     # Send stop signals
     for i in range(1, size):
         comm.send(None, dest=i, tag=0)
+
+else:
+    while True:
+        order = comm.recv(source=0, tag=0)
+
+        if order is None:
+            print(f"WORKER {rank}: Shutting down")
+            break
+
+        print(f"WORKER {rank}: Processing order {order['id']} ({order['item']})")
+
+        # simulate processing delay
+        time.sleep(random.uniform(0.5, 2.0))
+
+        print(f"WORKER {rank}: Finished order {order['id']}")
+
+        # send result back to master
+        comm.send({
+            "order_id": order["id"],
+            "item": order["item"],
+            "worker": rank
+        }, dest=0, tag=1)
