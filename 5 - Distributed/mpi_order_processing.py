@@ -11,3 +11,19 @@ if size < 2:
     if rank == 0:
         print("ERROR: Run with at least 2 processes using mpiexec -n 4")
     exit()
+
+if rank == 0:
+
+    print("\n===== DISTRIBUTED ORDER PROCESSING SYSTEM =====\n")
+
+    # Generate 5–8 orders
+    orders = []
+    for i in range(1, 8):
+        orders.append({
+            "id": i,
+            "item": f"Item-{i}"
+        })
+
+    print("MASTER: Created orders:")
+    for o in orders:
+        print(o)
