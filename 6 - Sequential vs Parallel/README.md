@@ -10,6 +10,10 @@ The project includes:
 
 Performance was measured using different dataset sizes, and a special case input was included which is the "already sorted case" to further analyze algorithm behavior.
 
+GIF DEMO:
+
+![Demo](Assets/Demo.gif)
+
 Individual Reflection: 
 
 Jhey Gulde: 
