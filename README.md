@@ -24,6 +24,7 @@ Department of Computer Science
 | **[3 - Concurrency](./3%20-%20Concurrency)** | Payroll system implementation utilizing **Task** and **Data Parallelism**. |
 | **[4 - Analog](./4%20-%20Analog)** | Computational simulation of a real-world bottleneck utilizing **Data Parallelism**. |
 | **[5 - Distributed](./5%20-%20Distributed)** | MPI-based master-worker order processing with shared memory coordination. |
+| **[6 - Sequential vs Parallel](./6%20-%20Sequential%20vs%20Parallel)** | Exploring the fundamental differences between sequential and parallel algorithms through both conceptual analysis and hands-on implementation. |
 ---
 
 ## Documentation
