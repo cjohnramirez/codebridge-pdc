@@ -1,73 +1,84 @@
 from mpi4py import MPI
+from multiprocessing import Manager, Lock
 import time
 import random
 
-comm = MPI.COMM_WORLD
-rank = comm.Get_rank()
-size = comm.Get_size()
+def main():
+    # MPI setup
+    cb = MPI.COMM_WORLD
+    rank = cb.Get_rank()
+    size = cb.Get_size()
 
-# ---------------- SAFETY CHECK ----------------
-if size < 2:
+    # Safety Check for minimum processes
+    if size < 2:
+        if rank == 0:
+            print("ERROR: Run with at least 2 processes using mpiexec -n 4")
+        return
+
+    # Shared data structures
+    manager = Manager()
+    shared_orders = manager.list()
+    lock = Lock()
+
+    # Master process
     if rank == 0:
-        print("ERROR: Run with at least 2 processes using mpiexec -n 4")
-    exit()
+        print("\n===== DISTRIBUTED ORDER PROCESSING SYSTEM =====\n")
 
-if rank == 0:
+        # Generate 5–8 orders (7 total)
+        orders = []
+        for i in range(1, 8):
+            orders.append({
+                "id": i,
+                "item": f"Item-{i}"
+            })
 
-    print("\n===== DISTRIBUTED ORDER PROCESSING SYSTEM =====\n")
+        print("MASTER: Created orders:")
+        for o in orders:
+            print(o)
 
-    # Generate 5–8 orders
-    orders = []
-    for i in range(1, 8):
-        orders.append({
-            "id": i,
-            "item": f"Item-{i}"
-        })
-
-    print("MASTER: Created orders:")
-    for o in orders:
-        print(o)
         print("\nMASTER: Distributing orders...\n")
 
-    # Send orders to workers
-    for i, order in enumerate(orders):
-        worker_rank = (i % (size - 1)) + 1
-        comm.send(order, dest=worker_rank, tag=0)
-        print(f"MASTER: Sent order {order['id']} to worker {worker_rank}")
+        # Distribute orders
+        for i, order in enumerate(orders):
+            worker_rank = (i % (size - 1)) + 1
+            cb.send(order, dest=worker_rank, tag=0)
+            print(f"MASTER: Sent order {order['id']} to worker {worker_rank}")
 
-    # Send stop signals
-    for i in range(1, size):
-        comm.send(None, dest=i, tag=0)
+        # Stop signals
+        for i in range(1, size):
+            cb.send(None, dest=i, tag=0)
 
-  # Collect results from workers
-    completed = []
+        # Allow workers time to finish
+        time.sleep(3)
 
-    for _ in orders:
-        result = comm.recv(source=MPI.ANY_SOURCE, tag=1)
-        completed.append(result)
+        # Final results
+        print("\n===== FINAL RESULTS =====")
+        for order in shared_orders:
+            print(order)
 
-    print("\n===== FINAL RESULTS =====")
-    for r in completed:
-        print(r)
+    # Worker Processes
+    else:
+        while True:
+            order = cb.recv(source=0, tag=0)
 
-else:
-    while True:
-        order = comm.recv(source=0, tag=0)
+            if order is None:
+                print(f"WORKER {rank}: Shutting down")
+                break
 
-        if order is None:
-            print(f"WORKER {rank}: Shutting down")
-            break
+            print(f"WORKER {rank}: Processing order {order['id']} ({order['item']})")
 
-        print(f"WORKER {rank}: Processing order {order['id']} ({order['item']})")
+            time.sleep(random.uniform(0.5, 2.0))
 
-        # simulate processing delay
-        time.sleep(random.uniform(0.5, 2.0))
+            print(f"WORKER {rank}: Finished order {order['id']}")
 
-        print(f"WORKER {rank}: Finished order {order['id']}")
+            # Critical section
+            with lock:
+                shared_orders.append({
+                    "order_id": order["id"],
+                    "item": order["item"],
+                    "processed_by": rank
+                })
 
-        # send result back to master
-        comm.send({
-            "order_id": order["id"],
-            "item": order["item"],
-            "worker": rank
-        }, dest=0, tag=1)
+# Run the main function
+if __name__ == "__main__":
+    main()
