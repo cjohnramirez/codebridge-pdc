@@ -3,73 +3,55 @@ import time
 import random
 
 
-def run():
+def main():
     CB = MPI.COMM_WORLD
-    pid = CB.Get_rank()
-    total = CB.Get_size()
+    rank = CB.Get_rank()
+    size = CB.Get_size()
 
-    if total < 2:
-        if pid == 0:
-            print("Need at least 2 MPI processes.")
+    if size < 2:
+        if rank == 0:
+            print("Run this program with at least 2 processes using mpirun.")
         return
 
-    if pid == 0:
-        # create work
-        orders = []
-        for i in range(1, 8):
-            orders.append({
-                "id": i,
-                "item": "Item-" + str(i)
-            })
+    # MASTER PROCESS
+    if rank == 0:
+        orders = [
+            {"id": i, "item": f"Item-{i}"}
+            for i in range(1, 8)
+        ]
 
-        print("\nMASTER process started")
-        print("Orders to process:")
+        print("\nMASTER: Created orders")
         for o in orders:
             print(o)
 
-        # distribute work
-        worker_index = 1
+        print("\nMASTER: Distributing orders...\n")
+
+        worker = 1
         for order in orders:
-            CB.send(order, dest=worker_index, tag=0)
-            print(f"Sent order {order['id']} to worker {worker_index}")
+            CB.send(order, dest=worker, tag=0)
+            print(f"MASTER: Sent order {order['id']} to worker {worker}")
 
-            worker_index += 1
-            if worker_index >= total:
-                worker_index = 1
+            worker += 1
+            if worker >= size:
+                worker = 1
 
-        # notify workers to stop
-        for w in range(1, total):
+        # send exit signals
+        for w in range(1, size):
             CB.send(None, dest=w, tag=0)
 
-        # receive results
-        completed = []
-        for _ in range(len(orders)):
-            msg = CB.recv(source=MPI.ANY_SOURCE, tag=1)
-            completed.append(msg)
-
-        print("\nProcessing results:")
-        for c in completed:
-            print(c)
-
+    # WORKER PROCESSES
     else:
         while True:
             task = CB.recv(source=0, tag=0)
 
             if task is None:
-                print(f"Worker {pid} exiting")
+                print(f"Worker {rank}: exiting")
                 break
 
-            print(f"Worker {pid} working on order {task['id']}")
+            print(f"Worker {rank}: processing order {task['id']}")
             time.sleep(random.uniform(0.5, 2.0))
-
-            result = {
-                "order_id": task["id"],
-                "item": task["item"],
-                "worker": pid
-            }
-
-            CB.send(result, dest=0, tag=1)
+            print(f"Worker {rank}: finished order {task['id']}")
 
 
 if __name__ == "__main__":
-    run()
+    main()
