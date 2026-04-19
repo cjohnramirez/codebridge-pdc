@@ -28,3 +28,7 @@ I think sequential and parallel differs to each other when it comes to its perfo
 **John Carl Ramirez**
 
 This project highlights the trade-off between architectural simplicity and computational throughput. While sequential algorithms remain more efficient for smaller datasets due to the absence of threading overhead, parallel execution proves essential for high-volume workloads where multi-core utilization can significantly reduce execution time. The implementation process underscored the complexities of synchronization and resource management, particularly in avoiding race conditions during the merging of sub-tasks. Ultimately, the results demonstrate that selecting the optimal execution model is strictly dependent on the scale of the dataset and the specific hardware constraints involved.
+
+**Kathleen Grace S. Gultiano**
+
+This activity shows that choosing between sequential and parallel processing is entirely situational, depending heavily on data size and hardware capabilities. While sequential algorithms are straightforward to design and highly efficient for small datasets due to their lack of overhead, they struggle with massive workloads. In contrast, parallel execution requires meticulous attention to task synchronization to prevent race conditions, but its ability to leverage multi-core throughput makes it vastly superior for high-volume tasks. Basically, the decision to use parallel processing should strictly depend on whether the dataset is massive enough to offset the added complexity.
